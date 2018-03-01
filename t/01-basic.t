@@ -14,6 +14,7 @@ use Nodejs::Util qw(
                );
 
 my $tempdir = tempdir(CLEANUP => !$ENV{DEBUG});
+$tempdir =~ s/\\/\//g if $^O eq 'MSWin32';
 if ($ENV{DEBUG}) {
     note "tempdir=$tempdir";
 }
